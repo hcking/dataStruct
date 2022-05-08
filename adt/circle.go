@@ -1,7 +1,8 @@
-package ADT
+package adt
 
 const PI = 3.14
 
+// Circle 圆
 type Circle struct {
 	r  float64
 	x  float64

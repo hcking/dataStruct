@@ -1,5 +1,6 @@
-package ADT
+package adt
 
+// Complex 复数
 type Complex struct {
 	realPart float64
 	imagPart float64
