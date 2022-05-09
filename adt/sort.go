@@ -1,4 +1,4 @@
-package dataStruct
+package adt
 
 func Reverse(arr1 []int) []int {
 	n := len(arr1)

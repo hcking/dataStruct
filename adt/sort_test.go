@@ -1,4 +1,4 @@
-package dataStruct
+package adt
 
 import (
 	"github.com/stretchr/testify/assert"
