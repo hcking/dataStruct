@@ -1,13 +1,18 @@
 package adt
 
 import (
-	"fmt"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestNewSqList(t *testing.T) {
-	book1 := NewBook(1, "数据结构", 100)
-	book2 := NewBook(2, "数据结构2", 200)
-	bookList := NewSqList()
-	fmt.Println(bookList, book1, book2)
+	book1 := NewBook(1, "data struct 1", 100)
+	book2 := NewBook(2, "data struct 2", 200)
+	bookList := NewSqList(5)
+	bookList.Append(book1)
+	bookList.Append(book2)
+	assert.Equal(t, bookList.Get(0), book1)
+	assert.Equal(t, bookList.Get(1), book2)
+	assert.Equal(t, bookList.Get(2), nil)
+	assert.Equal(t, bookList.Get(100), nil)
 }
