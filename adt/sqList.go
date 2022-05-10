@@ -1,13 +1,22 @@
 package adt
 
+const GSqListMaxLen = 1000
+
 // SqList sequence list 顺序表(线性表)结构
 type SqList struct {
 	length int
 	data   []interface{}
+	maxLen int
 }
 
-func NewSqList() (l *SqList) {
-	l = &SqList{}
+func NewSqList(maxLen int) *SqList {
+	l := &SqList{}
+	if maxLen <= 0 {
+		l.maxLen = GSqListMaxLen
+	} else {
+		l.maxLen = maxLen
+	}
+	l.data = make([]interface{}, l.maxLen)
 	l.length = 0
 	return l
 }
@@ -18,7 +27,6 @@ func (l *SqList) Clear() {
 }
 
 func (l *SqList) Destroy() {
-	l.data = nil
 	l.length = 0
 	return
 }
@@ -34,16 +42,16 @@ func (l *SqList) IsEmpty() bool {
 	return false
 }
 
-func (l *SqList) Get(i int) (res interface{}) {
-	if i < 1 || i > l.length {
+func (l *SqList) Get(index int) interface{} {
+	if index < 0 || index > l.length {
 		return nil
 	}
-	res = l.data[i-1]
+	res := l.data[index]
 	return res
 }
 
-func (l *SqList) Find(item interface{}) (index int) {
-	for i := 0; i < l.Len(); i++ {
+func (l *SqList) Find(item interface{}) int {
+	for i := 0; i < l.length; i++ {
 		if l.data[i] == item {
 			return i
 		}
@@ -51,16 +59,36 @@ func (l *SqList) Find(item interface{}) (index int) {
 	return -1
 }
 
-func (l *SqList) Set(index int, item interface{}) bool {
-	if index < 0 || index > l.Len()+1 {
+func (l *SqList) Insert(index int, item interface{}) bool {
+	if l.length >= l.maxLen {
 		return false
 	}
-	if index > l.Len() {
+	if index < 0 || index > l.length {
+		return false
+	}
+	if index > l.length {
 		l.data = append(l.data, item)
 	} else {
 		newData := append(l.data[:index], item)
 		l.data = append(newData, l.data[index:])
 	}
 	l.length += 1
+	return true
+}
+
+func (l *SqList) Append(item interface{}) bool {
+	if l.length >= l.maxLen {
+		return false
+	}
+	l.data[l.length] = item
+	l.length += 1
+	return true
+}
+func (l *SqList) Del(index int) bool {
+	if index < 0 || index > l.length {
+		return false
+	}
+	l.data[index] = nil
+	l.length -= 1
 	return true
 }
