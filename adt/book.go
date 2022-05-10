@@ -1,7 +1,5 @@
 package adt
 
-const GBookMaxSize = 1000
-
 // Book 图书类型
 type Book struct {
 	no    int64   // 唯一编号
