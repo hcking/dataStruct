@@ -1,4 +1,4 @@
-package adt
+package arith
 
 func Reverse(arr1 []int) []int {
 	n := len(arr1)

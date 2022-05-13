@@ -1,8 +1,9 @@
-package adt
+package list
 
 const GSqListMaxLen = 1000
 
-// SqList sequence list 顺序表(线性表)结构
+// SqList sequence list 顺序表(线性表)结构 随机存取 O(1)
+// go 不支持 地址存取数组,所以模拟部分接口的操作
 type SqList struct {
 	length int
 	data   []interface{}

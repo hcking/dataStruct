@@ -1,4 +1,4 @@
-package adt
+package arith
 
 import (
 	"github.com/stretchr/testify/assert"
