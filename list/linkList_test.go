@@ -6,6 +6,6 @@ import (
 )
 
 func TestNewListNode(t *testing.T) {
-	l := NewListNode()
+	l := NewNode()
 	fmt.Println(l)
 }

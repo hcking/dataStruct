@@ -1,9 +1,9 @@
 package list
 
 // Node 单链表
-type ListNode struct {
+type Node struct {
 	data *Data
-	next *ListNode
+	next *Node
 }
 
 type Data struct {
@@ -12,7 +12,7 @@ type Data struct {
 	age  int
 }
 
-func NewListNode() *ListNode {
-	l := &ListNode{}
+func NewNode() *Node {
+	l := &Node{}
 	return l
 }
