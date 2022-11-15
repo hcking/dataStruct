@@ -1,4 +1,4 @@
-package arith
+package sort
 
 func Reverse(arr1 []int) []int {
 	n := len(arr1)

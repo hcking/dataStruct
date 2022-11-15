@@ -1,4 +1,4 @@
-package arith
+package sort
 
 import (
 	"github.com/stretchr/testify/assert"
