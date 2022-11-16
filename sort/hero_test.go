@@ -21,3 +21,19 @@ func TestSortHeroSlice(t *testing.T) {
 		fmt.Println(k, v)
 	}
 }
+
+func TestSortStudents(t *testing.T) {
+	var students Students
+	for i := 0; i < 10; i++ {
+		stu := Student{}
+		stu.Name = fmt.Sprintf("stu%d", i)
+		stu.Score = rand.Intn(100)
+		students = append(students, stu)
+	}
+	fmt.Println(students)
+	fmt.Println("sorting...")
+	students.Sort()
+	for k, v := range students {
+		fmt.Println(k, v)
+	}
+}
